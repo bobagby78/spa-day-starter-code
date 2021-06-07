@@ -7,9 +7,45 @@
 </head>
 <body>
 <h1>My Super Fancy Spa</h1>
+<!--Display client profile, pulling in name, skintype and manipedi option-->
 <div id = "clientProfile">
+    <h2> My Profile </h2>
+    <p th:text="${name}"> Client name should appear here </p>
+    <p th:text="${skintype}"> Client skin type should appear here</p>
+    <p th:text="${manipedi}"> Client choice Mani/Pedi should appear here </p>
 </div>
+
+<!--Display Services menu in profile, approp treatment based on skintype-->
 <div id = "servicesMenu">
+    <h2> Menu of Available Services </h2>
+    <div>
+        <h3> Facial Treatments </h3>
+        <p> The below facial treatments are recommended for your skin type. </p>
+        <table>
+            <th:block th:each="facial : ${appropriateFacials} ">
+            <tr>
+                <td th:text="${facial}"> Facial Treatment </td>
+            </tr>
+            </th:block>
+        </table>
+
+        <div th:if= "${manipedi == 'manicure'}">
+            <h3> Manicure </h3>
+            <p th:replace="fragments :: manicureDescription"> Display Mani Descrip Here</p>
+        </div>
+
+        <div th:if= "${manipedi == 'pedicure'}">
+            <h3> Pedicure </h3>
+            <p th:replace="fragments :: pedicureDescription"> Display Pedi Descrip Here</p>
+        </div>
+
+        <div th:if= "${manipedi == 'both'}">
+            <h3> Mani-Pedi Combo</h3>
+            <p th:replace="fragments :: maniPediDescription"> Display Mani-Pedi Descrip Here</p>
+        </div>
+
+
+    </div>
 </div>
 </body>
 </html>
