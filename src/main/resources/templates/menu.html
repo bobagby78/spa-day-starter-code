@@ -33,6 +33,10 @@
         <h3>Pedicure</h3>
         <p th:replace = "fragments :: pedicureDescription"></p>
     </div>
+    <div th:if = "${client.nailService == 'both'}">
+        <h3>Pedicure</h3>
+        <p th:replace = "fragments :: maniPediDescription"></p>
+    </div>
 </div>
 </body>
 </html>

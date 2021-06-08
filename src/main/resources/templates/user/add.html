@@ -2,23 +2,40 @@
 <html lang="en" xmlns:th = "http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8" />
-    <title>Spa Menu</title>
+    <title></title>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
 </head>
-<!--TODO add a nav to all of the pages to get around without having to type everything-->
+
 <body>
 <div>
-    <form method="post" action="/user">
-        <h1>Please log in so we can pamper you!</h1>
-        <p>Username: </p>
-        <input type="text">
-        <p>Email: </p>
-        <input type="text"  >
-        <p>Password: </p>
-        <input type="password"  >
-        <p>Validate password: </p>
-        <input type="password"  >
-        <br><br><input type="submit" value="Let's Go!!!!">
+    <form method="post" th:action="@{/user}">
+        <h1>Please log in or create a new profile so we can pamper you!</h1>
+        <div >
+            <label>Username:
+                <input type="text" name = "username" th:value="${username}">
+            </label>
+        </div>
+        <div>
+            <label> User Email:
+                <input type="email"  name="email" th:value="${email}">
+            </label>
+        </div>
+        <div>
+            <label> Password
+                <input type="password"  name = "password" th:value="${password}" >
+            </label>
+        </div>
+        <div>
+            <label>Verify password:
+                <input type="password" name="verify" >
+            </label>
+        </div>
+
+        <p th:text="${error}"></p>
+
+        <br>
+        <br>
+        <input type="submit" value="Let's Go!!!!">
     </form>
 </div>
 </body>

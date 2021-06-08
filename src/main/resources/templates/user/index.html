@@ -5,6 +5,21 @@
     <title>Document</title>
 </head>
 <body>
+<h1 th:text="'Welcome' + ${user.username} + '!'"></h1>
+<a th:href="@{/}">
+    Select your spa services here.
+</a>
+
+    <thead>
+        <tr>
+            <th> Username </th>
+            <th> Email </th>
+        </tr>
+    </thead>
+    <tr>
+        <td th:text="${user.username}">Username goes here</td>
+        <td th:text="${user.email}">User Email goes here</td>
+    </tr>
 
 </body>
 </html>
