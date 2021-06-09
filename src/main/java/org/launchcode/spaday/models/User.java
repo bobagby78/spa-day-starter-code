@@ -11,7 +11,7 @@ public class User {
     @Email (message = "The email entered does not seem to fit the name@email.com format.")
     private String email;
     @NotEmpty(message = "Please enter a password")
-    @Size(min = 6)
+    @Size(min = 6, message="Password must be at least 6 characters long.")
     private String password;
 
 //    private String verify;

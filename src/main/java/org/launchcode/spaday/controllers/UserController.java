@@ -22,7 +22,7 @@ public class UserController {
     @PostMapping
     public String processAddUserForm(Model model, @ModelAttribute @Valid User user, Errors errors, String verify) {
 
-        if (errors.hasErrors() || !user.getPassword().equals("verify")) {
+        if (errors.hasErrors() || !user.getPassword().equals(verify)) {
            return "user/add";
         }
         else {
